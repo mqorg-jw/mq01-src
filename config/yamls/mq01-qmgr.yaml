@@ -48,10 +48,10 @@ spec:
     resources:
       limits:
         cpu: "300m"
-        memory: 1Gi
+        memory: 500Mi
       requests:
         cpu: "50m"
-        memory: 2Gi
+        memory: 250Mi
     availability:
       type: SingleInstance
     storage:

@@ -51,7 +51,7 @@ spec:
         memory: 1Gi
       requests:
         cpu: "50m"
-        memory: 1Gi
+        memory: 2Gi
     availability:
       type: SingleInstance
     storage:

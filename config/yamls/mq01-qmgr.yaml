@@ -55,7 +55,7 @@ spec:
     availability:
       type: SingleInstance
     storage:
-      defaultClass: # will use default
+      defaultClass: ibmc-vpc-block-metro-retain-5iops-tier
       queueManager:
         type: persistent-claim
       persistedData:
@@ -71,6 +71,20 @@ spec:
         env:
         - name: MQSNOAUT
           value: "yes"
+        - name: MQ_DEV
+              value: "true"
+        - name: MQ_CONNAUTH_USE_HTP
+            value: "true"
+        - name: MQ_ADMIN_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: my-mq-dev-passwords
+                key: dev-admin-password
+        - name: MQ_APP_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: my-mq-dev-passwords
+              key: dev-app-password        
   terminationGracePeriodSeconds: 30
   tracing:
     agent: {}
